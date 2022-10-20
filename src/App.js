@@ -25,8 +25,12 @@ function App() {
       </div>
       <div className="input">
         <input value={toDo} onChange={(e)=>setToDo(e.target.value)} type="text" placeholder="🖊️ Add item..." />
-       {toDo && <i onClick={()=>setToDos([...toDos,{id:new Date(),text:toDo,state:false}])} className="fas fa-plus"></i>}
-     
+       {toDo ? <i onClick={()=>{
+        setToDos([...toDos,{id:new Date(),text:toDo,state:false}]) 
+        setToDo('')
+      }
+      } 
+      className="fas fa-plus"></i> : ''}
        
       </div>
       <div className="todos">
